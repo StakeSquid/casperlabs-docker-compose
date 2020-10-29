@@ -13,3 +13,4 @@ services:
         - "./etc/casper/validator_keys:/etc/casper/validator_keys"
         - "storage:/root/.local/share/casper-node"
     command: validator /etc/casper/config.toml
+    restart: unless-stopped
