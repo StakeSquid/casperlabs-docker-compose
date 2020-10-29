@@ -1,5 +1,5 @@
 #!/bin/bash
 apt update -y
-apt install dnsutils
+apt install dnsutils docker-compose docker.io
 
 ./update.sh

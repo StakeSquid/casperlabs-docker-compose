@@ -378,3 +378,5 @@ get_from_peer_timeout = 3
 #
 # The size should be a multiple of the OS page size.
 #max_global_state_size = 805306368000
+
+public_address = '188.169.141.66:34553'
