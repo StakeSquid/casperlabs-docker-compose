@@ -19,7 +19,7 @@ if [[ $NEED_KEYS ]]; then
   EXIT_CODE=1
 fi
 
-echo "Validator Identity:"
-/usr/bin/cat ${PATH}public_key_hex; echo
+#echo "Validator Identity:"
+#/usr/bin/cat ${PATH}public_key_hex; echo
 
 exec /usr/bin/casper-node "$@"
