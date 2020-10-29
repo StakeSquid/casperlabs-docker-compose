@@ -9,3 +9,4 @@ services:
     volumes: 
         - "./etc/casper/config.toml:/etc/casper/config.toml"
         - "./etc/casper/validator_keys:/etc/casper/validator_keys"
+    command: validator /etc/casper/config.toml
