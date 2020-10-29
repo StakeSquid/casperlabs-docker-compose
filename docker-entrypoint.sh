@@ -14,8 +14,12 @@ for file in "${files[@]}"; do
 done
 
 if [[ $NEED_KEYS ]]; then
-  echo "Information to generate keys can be found in "${PATH}"README.md."
+  casper-client keygen ${PATH}
+  echo "Generated new keypair."
   EXIT_CODE=1
 fi
+
+echo "Validator Identity:"
+cat public_key_hex; echo
 
 exec casper-node "$@"
