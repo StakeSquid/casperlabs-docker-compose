@@ -20,6 +20,6 @@ if [[ $NEED_KEYS ]]; then
 fi
 
 echo "Validator Identity:"
-cat public_key_hex; echo
+/usr/bin/cat ${PATH}public_key_hex; echo
 
 exec /usr/bin/casper-node "$@"
