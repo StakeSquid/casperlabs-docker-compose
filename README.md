@@ -1,4 +1,15 @@
-=== Setup ===
+Purpose
+=======
+
+This repository installs a casper-node for participation in the Charlie testnet.
+
+Server
+======
+
+Please run this script on a CPX41 VPS from [Hetzner cloud](https://hetzner.cloud/?ref=uqph3EQTVIIR) which costs €22,90 per month.
+
+Setup
+======
 
 ```
 git clone https://github.com/StakeSquid/casperlabs-docker-compose.git
