@@ -14,7 +14,7 @@ for file in "${files[@]}"; do
 done
 
 if [[ $NEED_KEYS ]]; then
-  casper-client keygen ${PATH}
+  /usr/bin/casper-client keygen ${PATH}
   echo "Generated new keypair."
   EXIT_CODE=1
 fi
