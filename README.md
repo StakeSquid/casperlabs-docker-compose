@@ -1,20 +1,7 @@
-Purpose
-=======
-
-This repository installs a casper-node for participation in the Charlie testnet.
-
-Server
-======
-
-Please run this script on a CPX41 VPS from [Hetzner cloud](https://hetzner.cloud/?ref=uqph3EQTVIIR) which costs €22,90 per month.
-
-Setup
-======
+=== Setup ===
 
 ```
-apt update -y
-apt install -y dnsutils docker-compose docker.io jq crudini
-
+apt update -y && apt install -y dnsutils docker-compose docker.io jq crudini git
 git clone https://github.com/StakeSquid/casperlabs-docker-compose.git
 cd casperlabs-docker-compose
 ./update.sh
