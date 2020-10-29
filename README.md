@@ -2,7 +2,7 @@
 
 ```
 apt update -y
-apt install dnsutils docker-compose docker.io jq crudini
+apt install -y dnsutils docker-compose docker.io jq crudini
 
 git clone https://github.com/StakeSquid/casperlabs-docker-compose.git
 cd casperlabs-docker-compose
