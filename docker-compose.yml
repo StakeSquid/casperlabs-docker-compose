@@ -1,4 +1,6 @@
 version: "3.3"
+volumes:
+  storage: {}
 services:
   casper-node:
     build: ./build
@@ -9,4 +11,5 @@ services:
     volumes: 
         - "./etc/casper/config.toml:/etc/casper/config.toml"
         - "./etc/casper/validator_keys:/etc/casper/validator_keys"
+        - "storage:/root/.local/share/casper-node"
     command: validator /etc/casper/config.toml
