@@ -8,6 +8,8 @@ RUN wget --content-disposition https://bintray.com/casperlabs/debian/download_fi
 RUN apt install -y ./casper-client_1.5.0-2267_amd64.deb ./casper-node_1.5.0-2267_amd64.deb
 
 VOLUME /etc/casper/validator_keys
+
+RUN rm /etc/casper/config.toml
 VOLUME /etc/casper/config.toml
 
 COPY ./docker-entrypoint.sh /
