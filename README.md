@@ -1,4 +1,5 @@
-=== Setup ===
+Setup
+=====
 
 ```
 apt update -y && apt install -y dnsutils docker-compose docker.io jq crudini git
