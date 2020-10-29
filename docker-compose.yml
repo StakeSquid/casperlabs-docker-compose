@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  casper-node:
+    build: .
+    ports:
+        - "7777:7777"
+        - "34553:34553"
+        - "34552:34552"
+    volumes: 
+        - "etc/casper/config.toml:/etc/casper/config.toml"
+        - "etc/casper/validator_keys:/etc/casper/validator_keys"
