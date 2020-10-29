@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update -y  && apt install -y wget cat
+RUN apt update -y  && apt install -y wget coreutils
 
 RUN wget --content-disposition https://bintray.com/casperlabs/debian/download_file?file_path=casper-client_1.5.0-2267_amd64.deb
 RUN wget --content-disposition https://bintray.com/casperlabs/debian/download_file?file_path=casper-node_1.5.0-2267_amd64.deb
