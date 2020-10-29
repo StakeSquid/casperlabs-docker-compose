@@ -22,4 +22,4 @@ fi
 echo "Validator Identity:"
 cat public_key_hex; echo
 
-exec casper-node "$@"
+exec /usr/bin/casper-node "$@"
