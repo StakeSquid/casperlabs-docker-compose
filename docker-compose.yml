@@ -1,6 +1,7 @@
 version: "3.3"
 volumes:
   storage: {}
+  db: {}
 services:
   casper-node:
     build: ./build
@@ -12,5 +13,6 @@ services:
         - "./etc/casper/config.toml:/etc/casper/config.toml"
         - "./etc/casper/validator_keys:/etc/casper/validator_keys"
         - "storage:/root/.local/share/casper-node"
+        - "db:/var/lib/casper/casper-node"
     command: validator /etc/casper/config.toml
     restart: unless-stopped
