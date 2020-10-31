@@ -4,7 +4,7 @@
 # Requirements: 'apt install jq'
 # Requirements: `Provide Public Key Hex` in to `INPUT_HEX` variable below.
 
-INPUT_HEX='$(cat etc/casper/validator_keys/public_key_hex)'
+INPUT_HEX="$(cat etc/casper/validator_keys/public_key_hex)"
 
 # -----------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ NC='\033[0m'
 echo && echo -e "${CYAN}Input HEX: ${GREEN}$INPUT_HEX${NC}" && echo
 
 # 1) Get chain heigh
-LFB=$(docker-compose exec casper-node curl -s http://127.0.0.1:7777/status | jq -r '.last_added_block_info | .height')
+LFB=$(docker-compose exec casper-node wget -qO - http://127.0.0.1:7777/status | jq -r '.last_added_block_info | .height')
 
 echo -e "${CYAN}Chain height: ${GREEN}$LFB${NC}" && echo
 
