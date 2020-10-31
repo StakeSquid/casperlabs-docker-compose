@@ -17,5 +17,16 @@ Now you can edit the generated validator identity key files in etc/casper/valida
 
 This refreshed the installation and restarts the node with the updated keys.
 
+Once your account is funded and you want to start validating it is required to bid in the auction contract to register your public key hex for a validator slot.
+
+```
+./register-validator-on-chain.sh
+```
+
+Note: The script bids a fixed amount that can be changed in the script.
+
+```
+--payment-amount 1000000000000
+```
 
 
