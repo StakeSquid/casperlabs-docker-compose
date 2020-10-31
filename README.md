@@ -17,6 +17,12 @@ Now you can edit the generated validator identity key files in etc/casper/valida
 
 This refreshed the installation and restarts the node with the updated keys.
 
+Get your current public key hex with the collowing command.
+
+```
+cat etc/casper/validator_keys/public_key_hex
+```
+
 Once your account is funded and you want to start validating it is required to bid in the auction contract to register your public key hex for a validator slot.
 
 ```
