@@ -16,12 +16,12 @@ NC='\033[0m'
 echo && echo -e "${CYAN}Input HEX: ${GREEN}$INPUT_HEX${NC}" && echo
 
 # 1) Get chain heigh
-LFB=$(curl -s http://127.0.0.1:7777/status | jq -r '.last_added_block_info | .height')
+LFB=$(docker-compose exec casper-node curl -s http://127.0.0.1:7777/status | jq -r '.last_added_block_info | .height')
 
 echo -e "${CYAN}Chain height: ${GREEN}$LFB${NC}" && echo
 
 # 2) Get LFB state root hash
-LFB_ROOT=$(docker-compose exec casper-node casper-client get-block  --node-address http://localhost:7777 -b "$LFB" | jq -r '.result | .block | .header | .state_root_hash')
+LFB_ROOT=$(docker-compose exec casper-node casper-client get-block --node-address http://localhost:7777 -b "$LFB" | jq -r '.result | .block | .header | .state_root_hash')
 
 echo -e "${CYAN}Block ${GREEN}$LFB ${CYAN}state root hash: ${GREEN}$LFB_ROOT${NC}" && echo
 
