@@ -2,6 +2,7 @@ version: "3.3"
 volumes:
   storage: {}
   db: {}
+  contracts: {}
 services:
   casper-node:
     build: ./build
@@ -14,5 +15,11 @@ services:
         - "./etc/casper/validator_keys:/etc/casper/validator_keys"
         - "storage:/root/.local/share/casper-node"
         - "db:/var/lib/casper/casper-node"
+        - "contracts:/contracts"
     command: validator /etc/casper/config.toml
     restart: unless-stopped
+  
+  build-env:
+    image: rust:latest
+    volumes:
+        - "contracts:/build"
