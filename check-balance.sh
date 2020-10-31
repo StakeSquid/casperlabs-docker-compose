@@ -4,7 +4,7 @@
 # Requirements: 'apt install jq'
 # Requirements: `Provide Public Key Hex` in to `INPUT_HEX` variable below.
 
-INPUT_HEX='$1'
+INPUT_HEX='$(cat etc/casper/validator_keys/public_key_hex)'
 
 # -----------------------------------------------------------------------
 
