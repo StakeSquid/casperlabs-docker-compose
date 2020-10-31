@@ -5,7 +5,7 @@ volumes:
   contracts: {}
 services:
   casper-node:
-    build: ./build
+    build: ./casper-node
     ports:
         - "7777:7777"
         - "34553:34553"
@@ -20,6 +20,6 @@ services:
     restart: unless-stopped
   
   build-env:
-    image: rust:latest
+    build: ./build-env
     volumes:
         - "contracts:/build"
