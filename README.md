@@ -33,7 +33,7 @@ cat etc/casper/validator_keys/public_key.pem
 ```
 
 
-Bonf the validator
+Bond the validator
 ##################
 
 Once your account is funded and you want to start validating it is required to bid in the auction contract to register your public key hex for a validator slot.
@@ -45,8 +45,24 @@ Once your account is funded and you want to start validating it is required to b
 Note: The script bids a fixed amount that can be changed in the script.
 
 ```
---payment-amount 1000000000000
+# --payment-amount 1000000000000 # this does somehting I don't know
+--session-arg="amount:u512='1000005'" # this is the actual default bid. pretty small but faucet compatible.
 ```
+
+You can wait a bit and then check if the validator bonded.
+
+```
+cat etc/casper/validator_keys/public_key_hex
+./get_auction_info.sh
+```
+
+In the last section of the output find your hash. It will be smaller. The first 2 digits are cut and the middle part replaced by dots.
+
+```
+# original public key hex is 019304135af2f140a87cb5d34670b45619cd4c005244623dc2ff1b41306b57c0f8 
+# search for 9304....c0f8
+```
+
 
 Some commands
 #############
@@ -59,3 +75,7 @@ docker-compose exec casper-node casper-client get-deploy --node-address http://3
 docker-compose exec casper-node wget -qO - http://127.0.0.1:7777/status | jq .peers
 ```
 
+References
+##########
+
+[Node operator guide](https://docs.google.com/document/d/1YO_WnjPt2sGJgPB1jm_hVDHYULYsjPEAtkiAiY0e3-0/edit#heading=h.iauun81d85na)
