@@ -17,7 +17,7 @@ Now you can edit the generated validator identity key files in etc/casper/valida
 
 This refreshed the installation and restarts the node with the updated keys.
 
-Get your current public key hex with the collowing command.
+Get your current public key hex to submit it to receive testnet coins for bonding with the collowing command.
 
 ```
 cat etc/casper/validator_keys/public_key_hex
