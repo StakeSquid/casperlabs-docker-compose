@@ -1,6 +1,8 @@
 Casperlabs 1 click instance for Delta testnet
 =============================================
 
+The docker containers are build using the official debian package releases.
+
 Setup
 =====
 
