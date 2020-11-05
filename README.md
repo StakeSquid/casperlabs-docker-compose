@@ -45,8 +45,19 @@ docker-compose down --rmi 'all' -v --remove-orphans
 ./update.sh
 ```
 
-On testnet resets when you wait for genesis, you will have to remove the line with the trusted_hash from the config file or your node because there is no trusted hash yet. You also should coment out the line in the update script that sets a trusted hash to the config file on every update. When genesis is done you should update the trusted hash in the update script and next time you restart it will be set in the config automatically. 
+On testnet resets when you wait for genesis, you will have to remove the line with the trusted_hash from the config file or your node because there is no trusted hash yet. You also should comment out the line in the update script that sets a trusted hash to the config file on every update. When genesis is done you should update the trusted hash in the update script and next time you restart it will be set in the config automatically. 
 
+After removing the trusted_hash line from the config file restart the node.
+
+```
+docker-compose down && docker-compose up -d
+```
+
+You can check the status of your node by querying the status enpoint. The log tends to not say anything for a while after start.
+
+```
+curl localhost:7777/status
+```
 
 
 Faucet
