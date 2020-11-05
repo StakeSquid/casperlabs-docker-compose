@@ -38,7 +38,15 @@ In general it is as easy as running the update script.
 ./update.sh
 ```
 
+After testnet resets when the network is already running you need to delete all the old state in your setup.
+
+```
+docker-compose down --rmi 'all' -v --remove-orphans
+./update.sh
+```
+
 On testnet resets when you wait for genesis, you will have to remove the line with the trusted_hash from the config file or your node because there is no trusted hash yet. You also should coment out the line in the update script that sets a trusted hash to the config file on every update. When genesis is done you should update the trusted hash in the update script and next time you restart it will be set in the config automatically. 
+
 
 
 Faucet
