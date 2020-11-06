@@ -90,7 +90,7 @@ You can wait a bit and then check if the validator bonded.
 
 ```
 cat etc/casper/validator_keys/public_key_hex
-./get_auction_info.sh
+./get-auction-info.sh
 ```
 
 In the last section of the output find your hash. It will be smaller. The first 2 digits are cut and the middle part replaced by dots.
