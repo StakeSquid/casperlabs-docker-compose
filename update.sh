@@ -6,6 +6,6 @@ git pull
 echo "[network] 
 public_address='$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short):34553'" | crudini --merge etc/casper/config.toml
 echo "[node] 
-trusted_hash='122308bc6b6a3630038ba51dca9d7326bdd49989d95af9347d175db10e8f3399'" | crudini --merge etc/casper/config.toml
+trusted_hash='0e41a5edf2e2abb4f82fe829e939f16f3da70022c0ef56e50ecaadb9fbb237f8'" | crudini --merge etc/casper/config.toml
 
 docker-compose up -d --build --force-recreate
