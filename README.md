@@ -1,10 +1,10 @@
-Casperlabs 1 click instance for Delta testnet
-=============================================
+# Casperlabs 1 click instance for Delta testnet
+
 
 The docker containers are build using the official debian package releases.
 
-Setup
-=====
+## Setup
+
 
 ```
 apt update -y && apt install -y dnsutils docker-compose docker.io jq crudini git
@@ -29,8 +29,8 @@ cat etc/casper/validator_keys/public_key_hex
 ```
 
 
-Updating
-========
+## Updating
+
 
 In general it is as easy as running the update script.
 
@@ -60,18 +60,11 @@ curl localhost:7777/status
 ```
 
 
-Faucet
-######
-
-You can upload the public key to the web wallet and find the [faucet](https://testnet-explorer.casperlabs.io/#/faucet) in the left menu bar to receive some coins.
-
-```
-cat etc/casper/validator_keys/public_key.pem
-```
 
 
-Bond the validator
-##################
+
+## Bond the validator
+
 
 Once your account is funded and you want to start validating it is required to bid in the auction contract to register your public key hex for a validator slot.
 
@@ -83,7 +76,7 @@ Note: The script bids a fixed amount that can be changed in the script.
 
 ```
 # --payment-amount 1000000000000 # this does somehting I don't know
---session-arg="amount:u512='1000005'" # this is the actual default bid. pretty small but faucet compatible.
+# --session-arg="amount:u512='1000005'" # this is the actual default bid. pretty small but faucet compatible.
 ```
 
 You can wait a bit and then check if the validator bonded.
@@ -101,8 +94,8 @@ In the last section of the output find your hash. It will be smaller. The first 
 ```
 
 
-Some commands
-#############
+## Some commands
+
 
 ```
 docker-compose exec casper-node casper-client get-deploy --node-address http://3.137.146.20:7777 3e2b0f33aa633c01a8cb46684cb6b6bd66a6c2d5a5718e2cea46e200747487dc
@@ -112,7 +105,7 @@ docker-compose exec casper-node casper-client get-deploy --node-address http://3
 docker-compose exec casper-node wget -qO - http://127.0.0.1:7777/status | jq .peers
 ```
 
-References
-##########
+## References
+
 
 [Node operator guide](https://docs.google.com/document/d/1YO_WnjPt2sGJgPB1jm_hVDHYULYsjPEAtkiAiY0e3-0/edit#heading=h.iauun81d85na)
