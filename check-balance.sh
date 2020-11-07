@@ -26,7 +26,7 @@ LFB_ROOT=$(docker-compose exec casper-node casper-client get-block --node-addres
 echo -e "${CYAN}Block ${GREEN}$LFB ${CYAN}state root hash: ${GREEN}$LFB_ROOT${NC}" && echo
 
 # 3) Get purse UREF
-PURSE_UREF=$(docker-compose exec casper-node casper-client query-state --node-address http://localhost:7777 -k "$INPUT_HEX" -g "$LFB_ROOT" | jq -r '.result | .stored_value | .Account | .main_purse')
+PURSE_UREF=$(docker-compose exec casper-node casper-client query-state --node-address http://localhost:7777 -k "$INPUT_HEX" --state-root-hash "$LFB_ROOT" | jq -r '.result | .stored_value | .Account | .main_purse')
 
 echo -e "${CYAN}Main purse uref: ${GREEN}$PURSE_UREF${NC}" && echo
 
