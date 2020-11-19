@@ -1,11 +1,15 @@
 #!/bin/bash
 
-git checkout etc/casper/config.toml
-git pull
+#git checkout etc/casper/config.toml
+#git pull
 
-echo "[network] 
-public_address='$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short):34553'" | crudini --merge etc/casper/config.toml
-echo "[node] 
-trusted_hash='0e41a5edf2e2abb4f82fe829e939f16f3da70022c0ef56e50ecaadb9fbb237f8'" | crudini --merge etc/casper/config.toml
+#echo "[network]
+#public_address='$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short):34553'" | crudini --merge etc/casper/config.toml
+
+HASH=$(curl -s http://54.177.84.9:7777/status | jq -r .last_added_block_info.hash)
+echo "[node]
+trusted_hash='${HASH}'" | crudini --merge etc/casper/config.toml
 
 docker-compose up -d --build --force-recreate
+docker stop casper-build
+docker rm casper-build

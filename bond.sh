@@ -11,7 +11,7 @@ PUB_KEY_HEX=$(cat etc/casper/validator_keys/public_key_hex)
 BID_AMOUNT="$1"
 PROFIT="$2"
 
-CHAIN_NAME="casper-delta-1"
+CHAIN_NAME="casper-delta-2"
 OWNER_PRIVATE_KEY="/etc/casper/validator_keys/secret_key.pem"
 API_HOST="http://127.0.0.1:7777"
 BONDING_CONTRACT="/contracts/release/add_bid.wasm"

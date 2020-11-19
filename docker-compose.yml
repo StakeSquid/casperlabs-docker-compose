@@ -1,11 +1,24 @@
-version: "3.3"
+version: '2.1'
+
+x-logging:
+  &default-logging
+  options:
+    max-file: '1'
+    compress: 'false'
+  driver: local
+
 volumes:
   storage: {}
   db: {}
   contracts: {}
+
 services:
+
+
+
   casper-node:
     build: ./casper-node
+    container_name: casper-node
     ports:
         - "7777:7777"
         - "34553:34553"
@@ -18,8 +31,17 @@ services:
         - "contracts:/contracts"
     command: validator /etc/casper/config.toml
     restart: unless-stopped
-  
+    logging: *default-logging  
+
+
+
   build-env:
     build: ./build-env
+    container_name: casper-build
     volumes:
         - "contracts:/build"
+    command: bash -c '(cd casper-node; make build-client-contracts; cp -R /casper-node/target/wasm32-unknown-unknown/release/ /build/)'
+    logging: *default-logging
+
+
+
