@@ -6,6 +6,7 @@ volumes:
 services:
   casper-node:
     build: ./casper-node
+    container_name: casper-node
     ports:
         - "7777:7777"
         - "34553:34553"
