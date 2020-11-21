@@ -9,7 +9,7 @@ services:
     container_name: casper-node
     ports:
         - "7777:7777"
-        - "34553:34553"
+        - "35000:35000"
         - "34552:34552"
     volumes: 
         - "./etc/casper/config.toml:/etc/casper/config.toml"
